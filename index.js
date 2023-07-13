@@ -49,7 +49,7 @@ function init() {
   function generateLogo(text, textColor, shape, shapeColor) {
     if (shape === "Triangle") {
       const Triangle = new Triangle(text, textColor, shapeColor);
-      return fs.writeFile("./Examples.logo.svg", Triangle.render(), (err) => {
+      return fs.writeFile("logo.svg", Triangle.render(), (err) => {
         if (err) {
           console.info(err);
         } else {
@@ -60,7 +60,7 @@ function init() {
 
     if (shape === "Circle") {
       const Circle = new Circle(text, textColor, shapeColor);
-      return fs.writeFile("./Examples.logo.svg", Circle.render(), (err) => {
+      return fs.writeFile("logo.svg", Circle.render(), (err) => {
         if (err) {
           console.info(err);
         } else {
@@ -71,7 +71,7 @@ function init() {
 
     if (shape === "Square") {
       const Square = new Square(text, textColor, shapeColor);
-      return fs.writeFile("./Examples.logo.svg", Square.render(), (err) => {
+      return fs.writeFile("logo.svg", Square.render(), (err) => {
         if (err) {
           console.info(err);
         } else {
