@@ -36,7 +36,7 @@ const questions = [
 function init() {
   inquirer
     .prompt(questions)
-    .then((responses) => {
+    .then((response) => {
       const text = response.text;
       const textColor = response.textcolor;
       const shape = response.shape;
