@@ -9,7 +9,7 @@ const questions = [
   {
     type: "input",
     name: "text",
-    message: "Please enter up to 3 letters.",
+    message: "Please enter up to three (3) letters for your logo text.",
   },
   {
     type: "input",
@@ -27,20 +27,17 @@ const questions = [
     type: "input",
     name: "shape color",
     message:
-      "Please enter a color or a hexidecimal number for your shape color.",
+      "Please enter a color or a hexidecimal number for your shape's fill/background color.",
   },
 ];
-
-//write a README file
-function writeToFile(fileName, data) {
-  return fs.writeFileSync(path.join(process.cwd(), fileName), data);
-}
 
 //initialize app
 function init() {
   inquirer.prompt(questions).then((responses) => {
-    console.log("Generated logo.svg");
-    writeToFile("./Examples/logo.svg", generateMarkdown({ ...responses }));
+    const text = response.text;
+    const textColor = response.textcolor;
+    const shape = response.shape;
+    const shapeColor = response.shapeColor;
   });
 }
 
