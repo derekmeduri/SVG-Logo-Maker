@@ -2,7 +2,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const path = require("path");
-const generateMarkdown = require("./utils/generateMarkdown");
+const { Triangle, Circle, Square } = require("./lib/shapes");
+const { error } = require("console");
 
 //array of questions for user input
 const questions = [
@@ -33,12 +34,52 @@ const questions = [
 
 //initialize app
 function init() {
-  inquirer.prompt(questions).then((responses) => {
-    const text = response.text;
-    const textColor = response.textcolor;
-    const shape = response.shape;
-    const shapeColor = response.shapeColor;
-  });
+  inquirer
+    .prompt(questions)
+    .then((responses) => {
+      const text = response.text;
+      const textColor = response.textcolor;
+      const shape = response.shape;
+      const shapeColor = response.shapeColor;
+
+      generateLogo(text, textColor, shape, shapeColor);
+    })
+    .catch((err) => console.log(err));
+
+  function generateLogo(text, textColor, shape, shapeColor) {
+    if (shape === "Triangle") {
+      const Triangle = new Triangle(text, textColor, shapeColor);
+      return fs.writeFile("./Examples.logo.svg", Triangle.render(), (err) => {
+        if (err) {
+          console.info(err);
+        } else {
+          console.log("Generated logo.svg");
+        }
+      });
+    }
+
+    if (shape === "Circle") {
+      const Circle = new Circle(text, textColor, shapeColor);
+      return fs.writeFile("./Examples.logo.svg", Circle.render(), (err) => {
+        if (err) {
+          console.info(err);
+        } else {
+          console.log("Generated logo.svg");
+        }
+      });
+    }
+
+    if (shape === "Square") {
+      const Square = new Square(text, textColor, shapeColor);
+      return fs.writeFile("./Examples.logo.svg", Square.render(), (err) => {
+        if (err) {
+          console.info(err);
+        } else {
+          console.log("Generated logo.svg");
+        }
+      });
+    }
+  }
 }
 
 //calling app
