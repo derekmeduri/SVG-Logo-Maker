@@ -1,9 +1,7 @@
 //packages needed for this application
 const fs = require("fs");
 const inquirer = require("inquirer");
-const path = require("path");
 const { Triangle, Circle, Square } = require("./lib/shapes");
-const { error } = require("console");
 
 //array of questions for user input
 const questions = [
