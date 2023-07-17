@@ -39,7 +39,6 @@ const questions = [
   },
 ];
 
-//initialize app
 inquirer
   .prompt(questions)
   .then((response) => {
@@ -49,16 +48,20 @@ inquirer
     const shapeColor = response.shapeColor;
     console.log(shape);
     generateLogo(text, textColor, shape, shapeColor);
+    console.log(generateLogo);
   })
-  .catch((err) => console.log(err));
-
+  .catch((error) => {
+    console.error(`Error ${error}`);
+  });
+// function to generate logo with user input from questions
 function generateLogo(text, textColor, shape, shapeColor) {
+  var logo;
   if (shape === "Triangle") {
-    const triangle = new Triangle(text, textColor, shapeColor);
-    console.log(triangle);
+    logo = new Triangle(text, textColor, shapeColor);
+    console.log(logo);
     return fs.writeFile("logo.svg", Triangle.render(), (err) => {
       if (err) {
-        console.info(err);
+        console.log(err);
       } else {
         console.log("Generated logo.svg");
       }
@@ -66,8 +69,8 @@ function generateLogo(text, textColor, shape, shapeColor) {
   }
 
   if (shape === "Circle") {
-    const circle = new Circle(text, textColor, shapeColor);
-    console.log(circle);
+    logo = new Circle(text, textColor, shapeColor);
+    console.logo(logo);
     return fs.writeFile("logo.svg", Circle.render(), (err) => {
       if (err) {
         console.info(err);
@@ -78,8 +81,8 @@ function generateLogo(text, textColor, shape, shapeColor) {
   }
 
   if (shape === "Square") {
-    const square = new Square(text, textColor, shapeColor);
-    console.log(square);
+    logo = new Square(text, textColor, shapeColor);
+    console.log(logo);
     return fs.writeFile("logo.svg", Square.render(), (err) => {
       if (err) {
         console.info(err);
