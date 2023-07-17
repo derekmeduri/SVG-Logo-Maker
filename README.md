@@ -16,15 +16,17 @@
 
 - [Testing](#Testing)
 
+- [Sources](#Sources)
+
 - [License](#License)
 
   ## Description
 
-  This application was created with node.js to take in user input and generate a logo and save it as an SVG file.
+  This application was created with Object Oriented Programming and using node.js to take in user input and generate a logo and save it as an SVG file.
 
   ## Installation
 
-  node.js, jest, invoking the application via terminal command line.
+  node.js, jest, inquirer, invoking the application via terminal command line.
 
   ## Usage
 
@@ -44,6 +46,13 @@
 
   ## Testing
 
-  ## License
+  To test, install jest via your CLI. once that is complete run npm i to make sure everything is installed. then run the command npm test.
 
-  Licensed under MIT License.
+## Sources
+
+https://www.w3.org/TR/SVG2/shapes.html
+https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
+
+## License
+
+Licensed under MIT License.
