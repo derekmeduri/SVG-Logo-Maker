@@ -2,6 +2,8 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 const { Triangle, Circle, Square } = require("./lib/shapes");
+const { error } = require("console");
+const { markAsUntransferable } = require("worker_threads");
 
 //array of questions for user input
 const questions = [
@@ -49,16 +51,26 @@ function generateLogo(text, textColor, shape, shapeColor) {
     userShape = new Square(text, textColor, shapeColor);
   }
 }
-function writeToFile(fileName, data) {
-  return fs.writeFileSync(fileName, data);
-}
+// function writeToFile(fileName, ) {
+//   return fs.writeFileSync(fileName, data,  {
+//     if (error) {
+//       return console.log(error);
+//     }
+//     console.log("Generated logo.svg");
+//   });
+// }
+const fileName = "logo.svg";
 
 inquirer
   .prompt(questions)
   .then((response) => {
     console.log("Creating SVG Logo");
     console.log(response);
-    writeToFile("logo.svg", generateLogo({ ...response }));
+    fs.writeFileSync(fileName, generateLogo(...response), (error) => {
+      if (error) {
+        console.log(error);
+      }
+    });
   })
   .catch((error) => {
     console.error(`Error ${error}`);
