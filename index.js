@@ -39,56 +39,27 @@ const questions = [
   },
 ];
 
+function generateLogo(text, textColor, shape, shapeColor) {
+  var userShape;
+  if (shape === "Circle") {
+    userShape = new Circle(text, textColor, shapeColor);
+  } else if (shape === "Triangle") {
+    userShape = new Triangle(text, textColor, shapeColor);
+  } else if (shape === "Square") {
+    userShape = new Square(text, textColor, shapeColor);
+  }
+}
+function writeToFile(fileName, data) {
+  return fs.writeFileSync(fileName, data);
+}
+
 inquirer
   .prompt(questions)
   .then((response) => {
-    const text = response.text;
-    const textColor = response.textcolor;
-    const shape = response.shape;
-    const shapeColor = response.shapeColor;
-    console.log(shape);
-    generateLogo(text, textColor, shape, shapeColor);
-    console.log(generateLogo);
+    console.log("Creating SVG Logo");
+    console.log(response);
+    writeToFile("logo.svg", generateLogo({ ...response }));
   })
   .catch((error) => {
     console.error(`Error ${error}`);
   });
-// function to generate logo with user input from questions
-function generateLogo(text, textColor, shape, shapeColor) {
-  var logo;
-  if (shape === "Triangle") {
-    logo = new Triangle(text, textColor, shapeColor);
-    console.log(logo);
-    return fs.writeFile("logo.svg", Triangle.render(), (err) => {
-      if (err) {
-        console.log(err);
-      } else {
-        console.log("Generated logo.svg");
-      }
-    });
-  }
-
-  if (shape === "Circle") {
-    logo = new Circle(text, textColor, shapeColor);
-    console.logo(logo);
-    return fs.writeFile("logo.svg", Circle.render(), (err) => {
-      if (err) {
-        console.info(err);
-      } else {
-        console.log("Generated logo.svg");
-      }
-    });
-  }
-
-  if (shape === "Square") {
-    logo = new Square(text, textColor, shapeColor);
-    console.log(logo);
-    return fs.writeFile("logo.svg", Square.render(), (err) => {
-      if (err) {
-        console.info(err);
-      } else {
-        console.log("Generated logo.svg");
-      }
-    });
-  }
-}
