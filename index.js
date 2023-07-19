@@ -66,7 +66,7 @@ inquirer
   .then((response) => {
     console.log("Creating SVG Logo");
     console.log(response);
-    fs.writeFileSync(fileName, generateLogo(...response), (error) => {
+    fs.writeFileSync(fileName, generateLogo({ ...response }), (error) => {
       if (error) {
         console.log(error);
       }
