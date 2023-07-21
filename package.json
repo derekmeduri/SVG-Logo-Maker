@@ -14,7 +14,9 @@
   "license": "ISC",
   "dependencies": {
     "inquirer": "^8.2.5",
-    "routerjs": "^2.4.5"
+    "node": "^20.4.0",
+    "routerjs": "^2.4.5",
+    "uuid": "^9.0.0"
   },
   "devDependencies": {
     "jest": "^29.6.1"
