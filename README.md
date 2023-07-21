@@ -50,6 +50,7 @@
 
 ## Sources
 
+Tutoring sessions with Sam Cordova
 https://www.w3.org/TR/SVG2/shapes.html
 https://developer.mozilla.org/en-US/docs/Web/SVG/Tutorial/Basic_Shapes
 https://www.youtube.com/watch?v=li7FzDHYZpc
