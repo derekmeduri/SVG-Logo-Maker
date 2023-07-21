@@ -1,4 +1,4 @@
 const CLI = require("./lib/cli");
-const shape = require("./lib/shapes");
+const Shape = require("./lib/shapes");
 
-run();
+run.CLI();
