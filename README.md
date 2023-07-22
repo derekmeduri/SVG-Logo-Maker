@@ -20,6 +20,12 @@
 
 - [License](#License)
 
+  ## Demo Link
+
+  [Demo Link](https://drive.google.com/file/d/1QxIML6lPPvYyEVb_5IpxyVxR9HJZeZiE/view)
+  ![QR Code](./assets/SVGgeneratorqrcode.jpg)
+  [Github Repository](https://github.com/derekmeduri/SVG-Logo-Maker)
+
   ## Description
 
   This application was created with Object Oriented Programming and using node.js to take in user input and generate a logo and save it as an SVG file.
